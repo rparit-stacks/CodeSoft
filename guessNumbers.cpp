@@ -28,11 +28,12 @@ void loading() {
 }
 
 void gettingDetails(int userNumber, int randomNum) {
+    int difference;
     if (userNumber == randomNum) {
         cout << "Congratulations! You guessed the number!";
         return;
     } else if (userNumber < randomNum) {
-        int difference = randomNum - userNumber;
+        difference = randomNum - userNumber;
         if (difference >= 50) {
             cout << "You are extremely far below the original number, please "
                     "try again...";
@@ -49,7 +50,7 @@ void gettingDetails(int userNumber, int randomNum) {
                     "again...";
         }
     } else {
-        int difference = userNumber - randomNum;
+        difference = userNumber - randomNum;
         if (difference >= 50) {
             cout << "You are extremely far above the original number, please "
                     "try again...";
@@ -92,7 +93,6 @@ void guessNumber(int randomNum, int n) {
         cout << "Enter your number (must be an integer and smaller than "
              << searchSpace << "): ";
 
-        // Check if input is an integer and within bounds
         while (!(cin >> userNumber)) {
             cout << "Invalid input. Please enter an integer: ";
             cin.clear();
@@ -105,7 +105,7 @@ void guessNumber(int randomNum, int n) {
         }
     } while (userNumber >= searchSpace);
 
-    cout<<endl;
+    cout << endl;
     gettingDetails(userNumber, randomNum);
     cout << endl;
     guessNumber(randomNum, n - 1);
@@ -115,7 +115,7 @@ int main() {
     cout << "Specify the upper limit (0 to your number): ";
     if (!(cin >> searchSpace)) {
         cout << "Invalid input. Please enter a valid number." << endl;
-        return 1;  // Exit program with error status
+        return 1;
     }
 
     guessNumber(randomNumber(), 5);
